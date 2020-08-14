@@ -2,7 +2,7 @@
 import {server as WebSocketServer}  from 'websocket'
 import http from 'http'
 
-const server = http.createServer((request, response)=>{
+const server = http.createServer((request, response) => {
     console.log(new Date(), ' Received request for ' + request.url)
     response.writeHead(404)
     response.end()
@@ -26,17 +26,17 @@ const originIsAllowed = (origin) => {
   return true
 }
 
-wsServer.on('request', (request)=>{
+wsServer.on('request', (request) => {
     if (!originIsAllowed(request.origin)) {
       // Make sure we only accept requests from an allowed origin
-      request.reject()
       console.log(new Date(), ' Connection from origin ' + request.origin + ' rejected.')
-      return
+      return request.reject()
+    } else {
+        console.log(new Date(), ' Connection accepted.')
     }
-
+    
     const connection = request.accept('echo-protocol', request.origin)
-    console.log(new Date(), ' Connection accepted.')
-
+    
     connection.on('message', (message) => {
         if (message.type === 'utf8') {
             console.log('Received Message: ' + message.utf8Data)

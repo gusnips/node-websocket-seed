@@ -8,7 +8,7 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "start": "nodemon -r esm "
+    "start": "node -r esm index"
   },
   "dependencies": {
     "esm": "^3.2.25",
