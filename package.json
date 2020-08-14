@@ -1,0 +1,13 @@
+{
+  "name": "node-websocket-seed",
+  "version": "1.0.0",
+  "description": "Simple websocket node bootstrap app",
+  "main": "index.js",
+  "repository": "https://github.com/gusnips/node-websocket-seed",
+  "author": "Gustavo Salome <gustavonips@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "websocket": "^1.0.31"
+  }
+}
