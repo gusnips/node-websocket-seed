@@ -31,11 +31,10 @@ wsServer.on('request', (request) => {
       // Make sure we only accept requests from an allowed origin
       console.log(new Date(), ' Connection from origin ' + request.origin + ' rejected.')
       return request.reject()
-    } else {
-        console.log(new Date(), ' Connection accepted.')
-    }
+    } 
     
     const connection = request.accept('echo-protocol', request.origin)
+    console.log(new Date(), ' Connection accepted.')
     
     connection.on('message', (message) => {
         if (message.type === 'utf8') {
